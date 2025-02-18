@@ -1,0 +1,32 @@
+<div class="card border-2" style="width:20rem" [class.border-success]="book.shareable" [class.border-warning]="book.archived">
+    <img [src]="bookCover" class="card-img-top object-fit-contain" alt="..." height="200">
+    <div class="card-body overflow-scroll">
+        <h5 class="card-title fs-6 text-nowrap fw-bold mb-1 text-truncate"><i
+                class="fa-solid fa-book"></i>&nbsp;{{book.title}}</h5>
+        <p class="card-text fs-6 text-secondary mb-1 text-truncate"><i
+                class="fa-solid fa-pen-nib"></i>&nbsp;{{book.authorName}}</p>
+        <p class="card-text fs-6 text-secondary mb-1"><i class="fa-solid fa-hashtag"></i>&nbsp;{{book.isbn}}</p>
+        <p class="card-text fs-6 text-secondary"><i class="fa-solid fa-user"></i>&nbsp;{{book.owner}}</p>
+        <hr>
+        <p class="card-text">{{book.synopsis}}</p>
+        <div class="card-footer d-flex gap-2 justify-content-between align-items-center">
+            <div class="d-flex gap-2">
+                <app-rating [rating]="book.rate || 0"></app-rating>
+                <span class="text-primary" *ngIf="book.rate || 0 > 0">{{book.rate}}</span>
+            </div>
+            @if (!manage) {
+            <div class="d-flex gap-2">
+                <i (click)="onShowDetails()" class="fas fa-circle-info text-primary"></i>
+                <i (click)="onBorrow()" class="fas fa-list-check text-primary"></i>
+                <i (click)="onAddToWaitingList()" class="fas fa-heart text-danger"></i>
+            </div>
+            }
+            @if (manage) {
+            <div class="d-flex gap-2">
+                <i (click)="onEdit()" class="fas fa-edit text-success"></i>
+                <i (click)="onShare()" class="fas fa-share-nodes text-primary"></i>
+                <i (click)="onArchive()" class="fas fa-archive text-danger"></i>
+            </div>
+            }
+        </div>
+    </div>

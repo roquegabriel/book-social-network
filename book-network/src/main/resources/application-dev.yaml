@@ -1,0 +1,41 @@
+spring:
+   datasource:
+      url: jdbc:postgresql://localhost:5432/book_social_network
+      username: admin
+      password: 1234
+      driver-class-name: org.postgresql.Driver
+   jpa:
+      hibernate:
+         ddl-auto: update
+      show-sql: false
+      properties:
+         format_sql: true
+      database: postgresql  
+   mail:
+      host: localhost
+      port: 1025
+      username: roque
+      password: 1986
+      properties:
+         mail:
+            smtp:
+               trust: '*'
+            auth: true
+            starttls:
+               enable: true
+            connectiontimout: 5000
+            timeout: 3000
+            writetimeout: 5000
+application:
+   security:
+      jwt:
+         secret-key: 57a8496160d49c3f1b4708fa56caf64e79c2ac1795196d5c62c8e8d04127a3cf
+         expiration: 8640000
+   mailing:
+      frontend:
+         activation-url: http://localhost:4200/activate-account
+   file:
+      upload:
+         photos-output-path: ./uploads
+server:
+   port: 8088
