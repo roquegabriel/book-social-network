@@ -54,16 +54,16 @@ export class ManageBookComponent implements OnInit {
     }).subscribe({
       next: (bookId: number) => {
         console.log('Book saved with id: ' + bookId);
-        // this.bookService.uploadBookCoverPicture({
-        //   'book-id': bookId,
-        //   body: {
-        //     file: this.selectedBookCover
-        //   }
-        // }).subscribe({
-        //   next: () => {
-        //     this.router.navigate(['/books/my-books'])
-        //   }
-        // })
+        this.bookService.uploadBookCoverPicture({
+          'book-id': bookId,
+          body: {
+            file: this.selectedBookCover
+          }
+        }).subscribe({
+          next: () => {
+            this.router.navigate(['/books/my-books'])
+          }
+        })
       },
       error: (error) => {
         this.errorMessages = error.error.validationErrors;

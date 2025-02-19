@@ -1,9 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { BorrowedBookResponse, FeedbackRequest, PageResponseBorrowedBookResponse } from '../../services/models';
-import { BookService, FeedbackService } from '../../services/services';
 import { FormsModule } from '@angular/forms';
-import { RatingComponent } from "../../modules/book/components/rating/rating.component";
-import { RouterLink } from '@angular/router';
+import { BorrowedBookResponse, FeedbackRequest, PageResponseBorrowedBookResponse } from '../../../../services/models';
+import { BookService, FeedbackService } from '../../../../services/services';
+import { RatingComponent } from '../../components/rating/rating.component';
 
 
 @Component({
@@ -61,7 +60,7 @@ export class BorrowedBookListComponent implements OnInit {
       body: this.feedbackRequest
     }).subscribe({
       next: () => {
-        this.findAllBorrowedBooks();        
+        this.findAllBorrowedBooks();
       }
     })
   }
