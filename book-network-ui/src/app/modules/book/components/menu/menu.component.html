@@ -37,8 +37,8 @@
                 <input type="search" placeholder="Find a book" class="form-control" aria-label="Search">
                 <button class="btn btn-outline-success"><i class="fas fa-search"></i></button>
                 <span>Welcome</span>
-                <span class="text-capitalized fw-bold">roque</span>
-                <button class="btn btn-link" type="button"><i class="fas fa-door-open"></i></button>
+                <span class="text-capitalized fw-bold">{{username | titlecase | splitFullname }}</span>
+                <button (click)="logout()" class="btn btn-link" type="button"><i class="fas fa-door-open"></i></button>
             </form>
         </div>
     </div>
